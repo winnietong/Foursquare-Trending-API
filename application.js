@@ -8,6 +8,8 @@ $(document).ready(function(){
     var clientID = "client_id=B0AH0SS14AFO2NNZQTY5OI1NQXK354RB2H2VVNZTDZ2IOD5T";
     var clientSecret = "client_secret=ZV0XUIFVWLI0MSW5GQC2DDNQM2AXOS5KMVN0CTCQJ3BV3CMG";
     var dateVerified = "v=20131016";
+
+    // Other
     var locations = [];
     var venueName = "";
     var geocoder;
@@ -29,7 +31,6 @@ $(document).ready(function(){
 
     $('#geocode-click').click(function(){
         var address = $('#address').val();
-        console.log(address);
         
         geocoder.geocode( { 'address': address}, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
@@ -85,7 +86,6 @@ $(document).ready(function(){
         }
     }
 
-    // draw markers and marker dialogue boxes
     function drawMarkers(lat, lng, venueName, venueHereNow){
 
         var contentString = venueName + ' (' + venueHereNow + ')';
