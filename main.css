@@ -50,11 +50,12 @@ table {
 
 /* CUSTOM CSS */
 body {
-	background: #1a2426;
 	font-size: 16px;
-	max-width: 1400px;
+	max-width: 1200px;
 	font-family: Helvetica;
 	height: 100%;
+	color: black;
+	margin: auto;
 }
 
 html{
@@ -62,7 +63,7 @@ html{
 }
 
 header{
-	margin: 40px;
+	margin: 30px;
 }
 
 footer{
@@ -71,11 +72,17 @@ footer{
 
 h1{
 	font-size: 40px;
-	color: white;
+}
+
+h2{
+	font-size: 30px;
+}
+
+h3{
+	font-size: 20px;
 }
 
 h4{
-	color: silver;
 }
 
 .container{
@@ -93,13 +100,27 @@ img {
 	border-radius: 3px;
 }
 
+#venue-info{
+	display: inline;
+	float: left;
+	margin-left: 40px;
+}
+
 #venueName{
-	color: white;
+	height: 400px;
+	width: 400px;
+	overflow: auto;
+	border: 1px solid #ccc;
+	padding: 8px;
+	margin-bottom: 20px;
 }
 
 #map-canvas{
-    height: 80%;
-    width: 50%;
-    margin: auto;
+    height: 400px;
+    width: 55%;
+    margin-right: 40px;
+    margin-bottom: 20px;
+	display: inline;
+    float: right;
 }
 
