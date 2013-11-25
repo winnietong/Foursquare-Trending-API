@@ -79,8 +79,8 @@ $(document).ready(function(){
             locations[i].lng = venueLng;
 
             venueName = response.response.venues[i].name;
-            $("#venueName").append("<h3>" + venueName + "<h3>");
-            $("#venueName").append(venueHereNow + " Here Now <br><br>");
+            $("#venueName").append("<h2>" + venueName + "<h2>");
+            $("#venueName").append("<h3>" + venueHereNow + " Here Now </h3>" + "<br><br>");
             drawMarkers(locations[i].lat, locations[i].lng, venueName, venueHereNow);
    
         }

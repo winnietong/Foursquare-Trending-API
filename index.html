@@ -5,22 +5,31 @@
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" href="main.css" />
+		<link href="https://fonts.googleapis.com/css?family=Oswald&v2" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<div class="container">
 			<header>
 				<h1>Trending on Foursquare</h1>
 			</header>
-			<h4>This demo uses the Foursquare and Google Maps API to map out trending venues nearby. </h4><br>
+			<hr>
+				<h4>This project uses the Foursquare and GoogleMaps API to show trending venues near you.</h4>
+				<h4>Not compatible with screen sizes under 1000px. (WIP)</h4>
+<!-- 			<ul>
+				<li>My FourSquare</li>
+				<li>Fork Me</li>
+			</ul> -->
 		</div>
 
 		<div id="venue-info">
 			<input id="address" type="textbox" value="San Francisco, CA">
-      		<input type="button" id="geocode-click" value="Update Location">
+      		<button id="geocode-click" type="button" value="Update Location"><img src="../img/icon_search.png" class="search-icon" alt="SomeAlternateText"></button>
 			<div id="venueName"></div>
 		</div>
      
 		<div id="map-canvas"></div>
+
+
 		<footer>
 		</footer>
 

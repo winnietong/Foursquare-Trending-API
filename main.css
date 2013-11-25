@@ -51,76 +51,131 @@ table {
 /* CUSTOM CSS */
 body {
 	font-size: 16px;
-	max-width: 1200px;
+	max-width: 1000px;
 	font-family: Helvetica;
 	height: 100%;
 	color: black;
 	margin: auto;
+/*	background-image: url("../img/balloons_large2.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% auto;
+	background-attachment:fixed;*/
+	background-image: url("../img/pw_maze_white.png");
+	background-repeat: repeat;
 }
 
 html{
 	height: 100%;
 }
 
-header{
-	margin: 30px;
+.container{
+	padding-bottom: 30px;
+	margin: auto;
+	text-align: center;
 }
 
 footer{
 	padding: 20px;
 }
 
+/* Header */
+header{
+	padding-top: 20px;
+}
+
+li{
+	display: inline;
+}
+
+/* Headings */
+
+hr{
+	border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 h1{
 	font-size: 40px;
+	padding: 10px;
+	color: black;
+	font-family: 'Oswald';
 }
 
 h2{
-	font-size: 30px;
+	font-size: 16px;
+	font-family: 'Helvetica Neue', Helvetica;
+	font-weight: 1000;
 }
 
 h3{
-	font-size: 20px;
+	font-size: 14px;
 }
 
 h4{
+	color: gray;
 }
 
-.container{
-	padding: 10px;
-	padding-bottom: 50px;
-	margin: auto;
-	text-align: center;
-}
-
-img {
-	display: inline;
-	width: 400px;
-	margin: 10px;
-	border: 5px solid white;
-	border-radius: 3px;
-}
+/* Right: Venue Info */
 
 #venue-info{
 	display: inline;
 	float: left;
-	margin-left: 40px;
+	margin-left: 20px;
+	margin-right: -20px;
+}
+
+#address{
+	background-color: white;
+	padding: 8px;
+	margin: 0;
+	margin-right: -5px;
+	width: 250px;
+	font-size: 16px;
+}
+
+#geocode-click{
+	background-color: gray;
+	border: 1px solid silver;
+	margin-right: -18px;
+	height: 40px;
+	width: 50px;
+	position: relative;
+	top: 4px;
+}
+.search-icon{
+	width: 15px;
+	padding: 3px;
 }
 
 #venueName{
 	height: 400px;
-	width: 400px;
+	width: 300px;
 	overflow: auto;
 	border: 1px solid #ccc;
 	padding: 8px;
-	margin-bottom: 20px;
+	background: white;
+	opacity: 0.8;
+	margin-bottom: 40px;
 }
+
+/* Left: Map; */
 
 #map-canvas{
-    height: 440px;
-    width: 55%;
-    margin-right: 40px;
-    margin-bottom: 20px;
+    height: 456px;
+    width: 640px;
+    margin-left: 20px;
+    margin-top: 4px;
 	display: inline;
-    float: right;
+    float: left;
 }
 
+
+/* Footer */
+
+footer{
+	display: block;
+	clear: both;
+	padding: 40px;
+}
