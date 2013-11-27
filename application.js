@@ -25,7 +25,6 @@ $(document).ready(function(){
             center: latLng
         };
         map = new google.maps.Map($("#map-canvas")[0], mapOptions);  //[0] gets HTMLElement
-        console.log("lat long" + latLng);
         getData(latLng);
     }
 
@@ -36,7 +35,6 @@ $(document).ready(function(){
             if (status == google.maps.GeocoderStatus.OK) {
                 latLng = results[0].geometry.location;
                 map.setCenter(latLng);
-                console.log('secondlatlong');
                 initialize(latLng);
             }
             else {
@@ -58,7 +56,6 @@ $(document).ready(function(){
             success: function(response) {
                 console.log(response);
                 showData(response);
-                console.log(response);
             }
         });
         // LOG URL 
@@ -79,10 +76,20 @@ $(document).ready(function(){
             locations[i].lng = venueLng;
 
             venueName = response.response.venues[i].name;
-            $("#venueName").append("<h2>" + venueName + "<h2>");
-            $("#venueName").append("<h3>" + venueHereNow + " Here Now </h3>" + "<br><br>");
+            var URL = response.response.venues[i].url;
+            var checkins = response.response.venues[i].stats.checkinsCount;
+
+            var category = response.response.venues[i].categories[0].name;
+            var address = response.response.venues[i].location.address;
+            var city =  response.response.venues[i].location.city;
+            var state = response.response.venues[i].location.state;
+
+            $("#venueName").append("<h2><a href='" +URL+ "'>" + venueName + "</a><h2>" );
+            $("#venueName").append("<p>(" + category + ")</p>");
+            $("#venueName").append("<div class='address-field'><h3>"+ address + "</h3><h3>" + city + ", " + state + "</h3></div>");
+            $("#venueName").append("<div class='details-field'><p>Here Now: " + venueHereNow + "</p><p>Checkins: " + checkins + "</p></div>");
+
             drawMarkers(locations[i].lat, locations[i].lng, venueName, venueHereNow);
-   
         }
     }
 
