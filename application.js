@@ -21,7 +21,7 @@ $(document).ready(function(){
     function initialize(latLng){
         geocoder = new google.maps.Geocoder();
         var mapOptions = {
-            zoom: 12,
+            zoom: 14,
             center: latLng
         };
         map = new google.maps.Map($("#map-canvas")[0], mapOptions);  //[0] gets HTMLElement
@@ -98,10 +98,10 @@ $(document).ready(function(){
 
     function drawMarkers(lat, lng, venueName, venueHereNow, venueNameNS){
 
-        var contentString = '<div style= "overflow: hidden;">' + venueName + ' (' + venueHereNow + ')</div>';
+        var contentString = '<div style= "overflow: hidden; white-space: nowrap; height: 14px;">' + venueName + ' (' + venueHereNow + ')</div>';
 
         var infowindow = new google.maps.InfoWindow({
-            content: contentString,
+            content: contentString
         });
 
         var markerOptions = {
@@ -113,9 +113,9 @@ $(document).ready(function(){
         google.maps.event.addListener(marker, 'click', function() {
             infowindow.open(map,marker);
         });
-        google.maps.event.addListener(marker, 'mouseout', function() {
-            infowindow.close(map,marker);
-        });
+        // google.maps.event.addListener(marker, 'mouseout', function() {
+        //     infowindow.close(map,marker);
+        // });
 
         $("." + venueNameNS).mouseenter(function(){
             infowindow.open(map,marker);
