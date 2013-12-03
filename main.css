@@ -105,7 +105,6 @@ h1{
 
 h2{
 	font-size: 20px;
-	font-family: 'Helvetica Neue', Helvetica;
 	margin-bottom: 2px;
 }
 
@@ -119,7 +118,7 @@ h4{
 
 p{
 	font-size: 12px;
-	color: gray;
+	color: #545454;
 }
 
 a{
@@ -168,6 +167,10 @@ a{
 	background: white;
 	opacity: 0.8;
 	margin-bottom: 40px;
+}
+
+.venueName-field{
+	color: #1e98bb;
 }
 
 .address-field{
