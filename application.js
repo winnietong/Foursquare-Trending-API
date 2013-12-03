@@ -58,8 +58,6 @@ $(document).ready(function(){
                 showData(response);
             }
         });
-        // LOG URL 
-        console.log(url);
     }
 
     function showData(response){
@@ -113,9 +111,9 @@ $(document).ready(function(){
         google.maps.event.addListener(marker, 'click', function() {
             infowindow.open(map,marker);
         });
-        // google.maps.event.addListener(marker, 'mouseout', function() {
-        //     infowindow.close(map,marker);
-        // });
+        google.maps.event.addListener(marker, 'mouseout', function() {
+            infowindow.close(map,marker);
+        });
 
         $("." + venueNameNS).mouseenter(function(){
             infowindow.open(map,marker);
