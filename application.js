@@ -25,6 +25,7 @@ $(document).ready(function(){
             center: latLng
         };
         map = new google.maps.Map($("#map-canvas")[0], mapOptions);  //[0] gets HTMLElement
+        console.log(latLng);
         getData(latLng);
     }
 
@@ -45,9 +46,10 @@ $(document).ready(function(){
     });
 
     function getData(latLng){
-        lat = latLng.ob;
-        lng = latLng.pb;
+        lat = latLng.pb;
+        lng = latLng.qb;
         var url = "https://api.foursquare.com/v2/venues/trending?ll=" + lat + ','+ lng + "&limit=20&radius=5000&" + clientID + "&" + clientSecret + "&" + dateVerified;
+        console.log(url);
         $.ajax({
             type: "GET",
             dataType: "jsonp",
@@ -83,12 +85,11 @@ $(document).ready(function(){
             var state = response.response.venues[i].location.state;
             var venueNameNS = venueName.replace(/[^a-zA-Z0-9-]/g, '');
 
-            var venueCSS = "<div class='"+ venueNameNS + "'><a href='" + URL + "'><h2 class='venueName-field'>" + venueName + "</a></h2>";
-            var addressCSS = "<div class='address-field'><h3>"+ address + "</h3><h3>" + city + ", " + state + "</h3></div>";
-            var detailsCSS = "<div class='details-field'><p>(" + category + ")</p><p>Here Now: " + venueHereNow + "</p><p>Checkins: " + checkins + "</p></div>";
+            var venueHTML = "<div class='"+ venueNameNS + "'><a href='" + URL + "'><h2 class='venueName-field'>" + venueName + "</a></h2>";
+            var addressHTML = "<div class='address-field'><h3>"+ address + "</h3><h3>" + city + ", " + state + "</h3></div>";
+            var detailsHTML = "<div class='details-field'><p>(" + category + ")</p><p>Here Now: " + venueHereNow + "</p><p>Checkins: " + checkins + "</p></div>";
             
-
-            $("#venueName").append(venueCSS + addressCSS + detailsCSS);
+            $("#venueName").append(venueHTML + addressHTML + detailsHTML);
 
             drawMarkers(locations[i].lat, locations[i].lng, venueName, venueHereNow, venueNameNS);
         }
