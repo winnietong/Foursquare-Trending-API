@@ -25,7 +25,6 @@ $(document).ready(function(){
             center: latLng
         };
         map = new google.maps.Map($("#map-canvas")[0], mapOptions);  //[0] gets HTMLElement
-        console.log(latLng);
         getData(latLng);
     }
 
@@ -46,8 +45,8 @@ $(document).ready(function(){
     });
 
     function getData(latLng){
-        lat = latLng.pb;
-        lng = latLng.qb;
+        lat = latLng.lat();
+        lng = latLng.lng();
         var url = "https://api.foursquare.com/v2/venues/trending?ll=" + lat + ','+ lng + "&limit=20&radius=5000&" + clientID + "&" + clientSecret + "&" + dateVerified;
         console.log(url);
         $.ajax({
@@ -56,7 +55,7 @@ $(document).ready(function(){
             cache: false,
             url: url,
             success: function(response) {
-                console.log(response);
+                // console.log(response);
                 showData(response);
             }
         });
