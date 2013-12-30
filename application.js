@@ -45,8 +45,8 @@ $(document).ready(function(){
     });
 
     function getData(latLng){
-        lat = latLng.lat();
-        lng = latLng.lng();
+        var lat = latLng.lat();
+        var lng = latLng.lng();
         var url = "https://api.foursquare.com/v2/venues/trending?ll=" + lat + ','+ lng + "&limit=20&radius=5000&" + clientID + "&" + clientSecret + "&" + dateVerified;
         console.log(url);
         $.ajax({
