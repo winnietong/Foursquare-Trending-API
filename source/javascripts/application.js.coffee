@@ -1,6 +1,7 @@
-#= require_tree '.'
 #= require_self
+#= require_tree '.'
 
+window.Winnie = {}
 
 # Google Maps API
 API_KEY = "AIzaSyCbtF0CCKkVZBqug9bPDhvJ7kOyZhx_2eE"
@@ -12,7 +13,7 @@ clientSecret = "client_secret=ZV0XUIFVWLI0MSW5GQC2DDNQM2AXOS5KMVN0CTCQJ3BV3CMG"
 dateVerified = "v=20131016"
 
 # Other
-locations = []
+venues = []
 venueName = ""
 geocoder = null
 map = null
@@ -39,72 +40,39 @@ getData = (latLng) ->
         url: url
         success: (response) ->
             showData(response)
-        
+
+
 showData = (response) ->
     # Clear div before rewriting list.
     $('#venueName').html('')
-    locations = []
+    venues = []
 
-    for venue in response.response.venues
+    for venueData in response.response.venues
+        venue = new Winnie.Venue()
 
-        venueLat = venue.location.lat
-        venueLng = venue.location.lng
-        venueHereNow = venue.hereNow.count
+        $.extend venue,
+            lat: venueData.location.lat
+            lng: venueData.location.lng
+            hereNowCount: venueData.hereNow.count
 
-        location = {}
-        location.lat = venueLat
-        location.lng = venueLng
+            name: venueData.name
+            url: venueData.url
+            checkinCount: venueData.stats.checkinsCount
 
-        venueName = venue.name
-        url = venue.url
-        checkins = venue.stats.checkinsCount
+            category: venueData.categories[0].name
+            address: venueData.location.address
+            city: venueData.location.city
+            state: venueData.location.state
+            compactVenueName: venueData.name.replace(/[^a-zA-Z0-9-]/g, '')
 
-        category = venue.categories[0].name
-        address = venue.location.address
-        city =  venue.location.city
-        state = venue.location.state
-        venueNameNS = venueName.replace(/[^a-zA-Z0-9-]/g, '')
-
-        venueHTML = JST['templates/venue_listing']
-            venueName: venueName
-            venueNameNS: venueNameNS
-            address: address
-            city: city
-            state: state
-            category: category
-            url: url
-            checkins: checkins
+        venueHTML = JST['templates/venue_listing'](venue)
 
         $("#venueName").append(venueHTML)
 
-        drawMarkers(location.lat, location.lng, venueName, venueHereNow, venueNameNS)
+        venue.drawMarkers(map)
+        venues.push venue
 
-        locations.push location
 
-drawMarkers = (lat, lng, venueName, venueHereNow, venueNameNS) ->
-
-    contentString = '<div style= "overflow: hidden; white-space: nowrap; height: 14px;">' + venueName + ' (' + venueHereNow + ')</div>'
-
-    infowindow = new google.maps.InfoWindow
-        content: contentString
-
-    markerOptions =
-        map: map
-        position: new google.maps.LatLng(lat, lng)
-    
-    marker = new google.maps.Marker(markerOptions)
-
-    google.maps.event.addListener marker, 'click', ->
-        infowindow.open(map, marker)
-    
-    google.maps.event.addListener marker, 'mouseout', ->
-        infowindow.close(map,marker)
-
-    $("." + venueNameNS).mouseenter ->
-        infowindow.open(map,marker)
-    
-    $("." + venueNameNS).mouseleave ->
-        infowindow.close(map,marker)
 
 $ ->
     initialize(latLng)

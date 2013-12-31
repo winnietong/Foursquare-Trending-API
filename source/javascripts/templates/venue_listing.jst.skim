@@ -1,7 +1,7 @@
-div class=@venueNameNS
+div class=@compactVenueName
 	a href=@url
 		h2.venueName-field
-			= @venueName
+			= @name
 
 div.address-field
 	h3
@@ -13,6 +13,6 @@ div.details-field
 	p
 		= "(#{@category})"
 	p
-		= "Here Now: #{@venueHereNow}"
+		= "Here Now: #{@hereNowCount}"
 	p
-		= "Checkins: #{@checkins}"
+		= "Checkins: #{@checkinCount}"
