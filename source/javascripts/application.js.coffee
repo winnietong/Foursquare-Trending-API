@@ -6,12 +6,6 @@ window.Winnie = {}
 # Google Maps API
 API_KEY = "AIzaSyCbtF0CCKkVZBqug9bPDhvJ7kOyZhx_2eE"
 
-# FourSquare API
-oauthToken= "oauth_token=ZV0XUIFVWLI0MSW5GQC2DDNQM2AXOS5KMVN0CTCQJ3BV3CMG"
-clientID = "client_id=B0AH0SS14AFO2NNZQTY5OI1NQXK354RB2H2VVNZTDZ2IOD5T"
-clientSecret = "client_secret=ZV0XUIFVWLI0MSW5GQC2DDNQM2AXOS5KMVN0CTCQJ3BV3CMG"
-dateVerified = "v=20131016"
-
 # Other
 venues = []
 venueName = ""
@@ -26,21 +20,8 @@ initialize = (latLng) ->
         center: latLng
     
     map = new google.maps.Map($("#map-canvas")[0], mapOptions)
-    getData(latLng)
-
-getData = (latLng) ->
-    lat = latLng.lat()
-    lng = latLng.lng()
-    url = "https://api.foursquare.com/v2/venues/trending?ll=#{lat},#{lng}&limit=20&radius=5000&#{clientID}&#{clientSecret}&#{dateVerified}"
-    console.log(url)
-    $.ajax
-        type: "GET"
-        dataType: "jsonp"
-        cache: false
-        url: url
-        success: (response) ->
-            showData(response)
-
+    fourSquare = new Winnie.FourSquare()
+    fourSquare.getData(latLng, showData)
 
 showData = (response) ->
     # Clear div before rewriting list.
@@ -72,20 +53,24 @@ showData = (response) ->
         venue.drawMarkers(map)
         venues.push venue
 
-
+addressSubmitHandler = (e) ->
+    e.preventDefault()
+    address = $('#address').val()
+    
+    geocoder.geocode {'address': address}, (results, status) ->
+        if status == google.maps.GeocoderStatus.OK
+            latLng = results[0].geometry.location
+            map.setCenter(latLng)
+            initialize(latLng)
+        
+        else
+            alert "Geocode was not successful for the following reason: #{status}"
+        
 
 $ ->
     initialize(latLng)
 
-    $('#geocode-click').click ->
-        address = $('#address').val()
-        
-        geocoder.geocode {'address': address}, (results, status) ->
-            if status == google.maps.GeocoderStatus.OK
-                latLng = results[0].geometry.location
-                map.setCenter(latLng)
-                initialize(latLng)
-            
-            else
-                alert "Geocode was not successful for the following reason: #{status}"
-            
+    $('#geocode-click').click addressSubmitHandler
+    $('#address').keydown (e) ->
+        if (e.keyCode == 13) # ENTER key
+            addressSubmitHandler(e)
