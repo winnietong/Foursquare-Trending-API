@@ -1,0 +1,18 @@
+div class=@venueNameNS
+	a href=@url
+		h2.venueName-field
+			= @venueName
+
+div.address-field
+	h3
+		= @address
+	h3
+		= "#{@city}, #{@state}"
+
+div.details-field
+	p
+		= "(#{@category})"
+	p
+		= "Here Now: #{@venueHereNow}"
+	p
+		= "Checkins: #{@checkins}"

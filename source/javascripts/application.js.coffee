@@ -1,3 +1,6 @@
+#= require_tree '.'
+#= require_self
+
 
 # Google Maps API
 API_KEY = "AIzaSyCbtF0CCKkVZBqug9bPDhvJ7kOyZhx_2eE"
@@ -53,7 +56,7 @@ showData = (response) ->
         location.lng = venueLng
 
         venueName = venue.name
-        URL = venue.url
+        url = venue.url
         checkins = venue.stats.checkinsCount
 
         category = venue.categories[0].name
@@ -62,11 +65,17 @@ showData = (response) ->
         state = venue.location.state
         venueNameNS = venueName.replace(/[^a-zA-Z0-9-]/g, '')
 
-        venueHTML = "<div class='"+ venueNameNS + "'><a href='" + URL + "'><h2 class='venueName-field'>" + venueName + "</a></h2>"
-        addressHTML = "<div class='address-field'><h3>"+ address + "</h3><h3>" + city + ", " + state + "</h3></div>"
-        detailsHTML = "<div class='details-field'><p>(" + category + ")</p><p>Here Now: " + venueHereNow + "</p><p>Checkins: " + checkins + "</p></div>"
-        
-        $("#venueName").append(venueHTML + addressHTML + detailsHTML)
+        venueHTML = JST['templates/venue_listing']
+            venueName: venueName
+            venueNameNS: venueNameNS
+            address: address
+            city: city
+            state: state
+            category: category
+            url: url
+            checkins: checkins
+
+        $("#venueName").append(venueHTML)
 
         drawMarkers(location.lat, location.lng, venueName, venueHereNow, venueNameNS)
 
