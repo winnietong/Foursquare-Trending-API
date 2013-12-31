@@ -1,52 +1,7 @@
-/* CSS RESET
-   http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+@import 'reset';
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
+$TEAL: #1e98bb;
+
 
 /* CUSTOM CSS */
 body {
@@ -64,78 +19,78 @@ body {
 	background-repeat: repeat;
 }
 
-html{
+html {
 	height: 100%;
 }
 
-.container{
+.container {
 	padding-bottom: 30px;
 	margin: auto;
 	text-align: center;
 }
 
-footer{
+footer {
 	padding: 20px;
 }
 
 /* Header */
-header{
+header {
 	padding-top: 20px;
 }
 
-li{
+li {
 	display: inline;
 }
 
 /* Headings */
 
-hr{
+hr {
 	border: 0;
     height: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-h1{
+h1 {
 	font-size: 40px;
 	padding: 10px;
 	color: black;
 	font-family: 'Oswald';
 }
 
-h2{
+h2 {
 	font-size: 20px;
 	margin-bottom: 2px;
 }
 
-h3{
+h3 {
 	font-size: 14px;
 }
 
-h4{
+h4 {
 	color: gray;
 }
 
-p{
+p {
 	font-size: 12px;
 	color: #545454;
 }
 
-a{
+a {
 	text-decoration: none;
-	color: #1e98bb;
+	color: $TEAL;
 }
 
 /* Right: Venue Info */
 
-#venue-info{
+#venue-info {
 	display: inline;
 	float: left;
 	margin-left: 20px;
 	margin-right: -20px;
 }
 
-#address{
+#address {
 	background-color: white;
 	padding: 8px;
 	margin: 0;
@@ -144,21 +99,21 @@ a{
 	font-size: 16px;
 }
 
-#geocode-click{
-	background-color: #1e98bb;
-	border: 1px solid #1e98bb;
+#geocode-click {
+	background-color: $TEAL;
+	border: 1px solid $TEAL;
 	margin-right: -18px;
 	height: 40px;
 	width: 50px;
 	position: relative;
 	top: 4px;
 }
-.search-icon{
+.search-icon {
 	width: 15px;
 	padding: 3px;
 }
 
-#venueName{
+#venueName {
 	height: 400px;
 	width: 300px;
 	overflow: auto;
@@ -169,20 +124,20 @@ a{
 	margin-bottom: 40px;
 }
 
-.venueName-field{
-	color: #1e98bb;
+.venueName-field {
+	color: $TEAL;
 }
 
-.address-field{
+.address-field {
 	margin-bottom: 5px 0;
 }
-.details-field{
+.details-field {
 	margin-bottom: 10px;
 }
 
 /* Left: Map; */
 
-#map-canvas{
+#map-canvas {
     height: 456px;
     width: 640px;
     margin-left: 20px;
@@ -194,7 +149,7 @@ a{
 
 /* Footer */
 
-footer{
+footer {
 	display: block;
 	clear: both;
 	padding: 40px;
