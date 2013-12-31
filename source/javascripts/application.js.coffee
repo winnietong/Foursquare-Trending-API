@@ -13,7 +13,7 @@ geocoder = null
 map = null
 latLng = new google.maps.LatLng(37.786, -122.401)
 
-initialize = (latLng) ->
+createMapAtLatLng = (latLng) ->
     geocoder = new google.maps.Geocoder()
     mapOptions =
         zoom: 14,
@@ -60,15 +60,15 @@ addressSubmitHandler = (e) ->
     geocoder.geocode {'address': address}, (results, status) ->
         if status == google.maps.GeocoderStatus.OK
             latLng = results[0].geometry.location
-            map.setCenter(latLng)
-            initialize(latLng)
+            # map.setCenter(latLng)
+            createMapAtLatLng(latLng)
         
         else
             alert "Geocode was not successful for the following reason: #{status}"
         
 
 $ ->
-    initialize(latLng)
+    createMapAtLatLng(latLng)
 
     $('#geocode-click').click addressSubmitHandler
     $('#address').keydown (e) ->
