@@ -1,0 +1,203 @@
+/* CSS RESET
+   http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+/* line 20, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/reset.css */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+/* line 30, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/reset.css */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+/* line 33, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/reset.css */
+body {
+  line-height: 1; }
+
+/* line 36, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/reset.css */
+ol, ul {
+  list-style: none; }
+
+/* line 39, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/reset.css */
+blockquote, q {
+  quotes: none; }
+
+/* line 43, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/reset.css */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+/* line 47, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/reset.css */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* CUSTOM CSS */
+/* line 7, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+body {
+  font-size: 16px;
+  max-width: 1000px;
+  font-family: Helvetica;
+  height: 100%;
+  color: black;
+  margin: auto;
+  /*	background-image: url("../img/balloons_large2.jpg");
+  	background-repeat: no-repeat;
+  	background-size: 100% auto;
+  	background-attachment:fixed;*/
+  background-image: url("../img/pw_maze_white.png");
+  background-repeat: repeat; }
+
+/* line 22, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+html {
+  height: 100%; }
+
+/* line 26, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+.container {
+  padding-bottom: 30px;
+  margin: auto;
+  text-align: center; }
+
+/* line 32, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+footer {
+  padding: 20px; }
+
+/* Header */
+/* line 37, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+header {
+  padding-top: 20px; }
+
+/* line 41, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+li {
+  display: inline; }
+
+/* Headings */
+/* line 47, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+
+/* line 54, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+h1 {
+  font-size: 40px;
+  padding: 10px;
+  color: black;
+  font-family: 'Oswald'; }
+
+/* line 61, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+h2 {
+  font-size: 20px;
+  margin-bottom: 2px; }
+
+/* line 66, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+h3 {
+  font-size: 14px; }
+
+/* line 70, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+h4 {
+  color: gray; }
+
+/* line 74, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+p {
+  font-size: 12px;
+  color: #545454; }
+
+/* line 79, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+a {
+  text-decoration: none;
+  color: #1e98bb; }
+
+/* Right: Venue Info */
+/* line 86, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+#venue-info {
+  display: inline;
+  float: left;
+  margin-left: 20px;
+  margin-right: -20px; }
+
+/* line 93, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+#address {
+  background-color: white;
+  padding: 8px;
+  margin: 0;
+  margin-right: -5px;
+  width: 250px;
+  font-size: 16px; }
+
+/* line 102, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+#geocode-click {
+  background-color: #1e98bb;
+  border: 1px solid #1e98bb;
+  margin-right: -18px;
+  height: 40px;
+  width: 50px;
+  position: relative;
+  top: 4px; }
+
+/* line 111, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+.search-icon {
+  width: 15px;
+  padding: 3px; }
+
+/* line 116, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+#venueName {
+  height: 400px;
+  width: 300px;
+  overflow: auto;
+  border: 1px solid #ccc;
+  padding: 8px;
+  background: white;
+  opacity: 0.8;
+  margin-bottom: 40px; }
+
+/* line 127, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+.venueName-field {
+  color: #1e98bb; }
+
+/* line 131, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+.address-field {
+  margin-bottom: 5px 0; }
+
+/* line 134, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+.details-field {
+  margin-bottom: 10px; }
+
+/* Left: Map; */
+/* line 140, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+#map-canvas {
+  height: 456px;
+  width: 640px;
+  margin-left: 20px;
+  margin-top: 4px;
+  display: inline;
+  float: left; }
+
+/* Footer */
+/* line 152, /Users/winnie/Documents/Dropbox/Public/Thinkful Coding/Foursquare Trending API/middleman/source/stylesheets/main.css.scss */
+footer {
+  display: block;
+  clear: both;
+  padding: 40px; }

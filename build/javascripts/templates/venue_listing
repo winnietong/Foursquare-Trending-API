@@ -1,0 +1,136 @@
+(function() { this.JST || (this.JST = {}); this.JST["templates/venue_listing"] = (function() {
+    this.Skim = {
+      access: function(name) {
+        var value;
+        value = this[name];
+        if (typeof value === "function") {
+          value = value.call(this);
+        }
+        if (value === true) {
+          return [this];
+        }
+        if (value === false || (value == null)) {
+          return false;
+        }
+        if (Object.prototype.toString.call(value) !== "[object Array]") {
+          return [value];
+        }
+        if (value.length === 0) {
+          return false;
+        }
+        return value;
+      },
+      withContext: function(context, block) {
+        var create, flatten;
+        create = function(o) {
+          var F;
+          F = function() {};
+          F.prototype = o;
+          return new F;
+        };
+        context = create(context);
+        context.safe || (context.safe = this.safe || function(value) {
+          var result;
+          if (value != null ? value.skimSafe : void 0) {
+            return value;
+          }
+          result = new String(value != null ? value : '');
+          result.skimSafe = true;
+          return result;
+        });
+        context.isArray = Array.isArray || function(value) {
+          return {}.toString.call(value) === '[object Array]';
+        };
+        context.flatten = flatten = function(array) {
+          var element, flattened, _i, _len;
+          flattened = [];
+          for (_i = 0, _len = array.length; _i < _len; _i++) {
+            element = array[_i];
+            if (element instanceof Array) {
+              flattened = flattened.concat(flatten(element));
+            } else {
+              flattened.push(element);
+            }
+          }
+          return flattened;
+        };
+        context.escape || (context.escape = this.escape || function(string) {
+          if (string == null) {
+            return '';
+          }
+          if (string.skimSafe || !/[&<>\"]/.test(string)) {
+            return string;
+          }
+          return this.safe(('' + string).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'));
+        });
+        return block.call(context);
+      }
+    };
+  
+    return function(context) {
+      if (context == null) {
+        context = {};
+      }
+      return Skim.withContext.call({}, context, function() {
+        var item, _buf, _i, _j, _len, _len1, _skim_codeattributes1, _skim_codeattributes2, _temple_coffeescript_attributeremover1;
+        _buf = '';
+        _buf += "<div";
+        _temple_coffeescript_attributeremover1 = '';
+        _skim_codeattributes1 = this.compactVenueName;
+        if (this.isArray(_skim_codeattributes1)) {
+          _skim_codeattributes1 = this.flatten(_skim_codeattributes1);
+          for (_i = 0, _len = _skim_codeattributes1.length; _i < _len; _i++) {
+            item = _skim_codeattributes1[_i];
+            if (item) {
+              _skim_codeattributes1 = item.toString();
+            }
+          }
+          for (_j = 0, _len1 = _skim_codeattributes1.length; _j < _len1; _j++) {
+            item = _skim_codeattributes1[_j];
+            if (item.length > 0) {
+              _skim_codeattributes1 = item;
+            }
+          }
+          _temple_coffeescript_attributeremover1 += this.escape(_skim_codeattributes1.join(" "));
+        } else {
+          _temple_coffeescript_attributeremover1 += this.escape(_skim_codeattributes1);
+        }
+        _temple_coffeescript_attributeremover1;
+        if (_temple_coffeescript_attributeremover1.length > 0) {
+          _buf += " class=\"";
+          _buf += _temple_coffeescript_attributeremover1;
+          _buf += "\"";
+        }
+        _buf += "><a";
+        _skim_codeattributes2 = this.url;
+        switch (_skim_codeattributes2) {
+          case true:
+            _buf += " href=\"href\"";
+            break;
+          case false:
+          case null:
+            break;
+          default:
+            _buf += " href=\"";
+            _buf += this.escape(_skim_codeattributes2);
+            _buf += "\"";
+        }
+        _buf += "><h2 class=\"venueName-field\">";
+        _buf += this.escape(this.name);
+        _buf += "</h2></a></div><div class=\"address-field\"><h3>";
+        _buf += this.escape(this.address);
+        _buf += "</h3><h3>";
+        _buf += this.escape("" + this.city + ", " + this.state);
+        _buf += "</h3></div><div class=\"details-field\"><p>";
+        _buf += this.escape("(" + this.category + ")");
+        _buf += "</p><p>";
+        _buf += this.escape("Here Now: " + this.hereNowCount);
+        _buf += "</p><p>";
+        _buf += this.escape("Checkins: " + this.checkinCount);
+        _buf += "</p></div>";
+        return _buf;
+      });
+    };
+  
+  }).call(this);;
+}).call(this);
